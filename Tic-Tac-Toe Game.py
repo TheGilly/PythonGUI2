@@ -8,21 +8,64 @@ Screen.geometry("600x600")
 
 turn = "x"
 
+turns = 0
+
+iswin = False
+
 def TicTacToe(ButtonID):
-    global turn
+    global turn, turns, iswin
     ButtonID.config(text = turn)
-    
+    turns = turns + 1
     if B1["text"] == B2["text"] ==B3["text"] != "":
         messagebox.showinfo("win", turn + " wins")
+        iswin = True
+    
+
+    if B4["text"] == B5["text"] ==B6["text"] != "":
+        messagebox.showinfo("win", turn + " wins")
+        iswin = True
+
+    if B7["text"] == B8["text"] ==B9["text"] != "":
+        messagebox.showinfo("win", turn + " wins")
+        iswin = True
+
+    if B1["text"] == B4["text"] ==B7["text"] != "":
+        messagebox.showinfo("win", turn + " wins")
+        iswin = True
+    
+    if B2["text"] == B5["text"] ==B8["text"] != "":
+        messagebox.showinfo("win", turn + " wins")
+        iswin = True
+    
+
+    if B3["text"] == B6["text"] ==B9["text"] != "":
+        messagebox.showinfo("win", turn + " wins")
+        iswin = True
+    
+
+    if B1["text"] == B5["text"] ==B9["text"] != "":
+        messagebox.showinfo("win", turn + " wins")
+        iswin = True
+    
+
+    if B3["text"] == B5["text"] ==B7["text"] != "":
+        messagebox.showinfo("win", turn + " wins")
+        iswin = True
+
+    if turns == 9 and iswin == False:
+        messagebox.showinfo("draw", "Its a tie")
+
     if turn == "x":
         turn = "o"
     else:
         turn = "x"
         
     
+        
+    
     
 
-B1 = Button(width = 25, height = 10, bg = "yellow", fg = "red", font=("Arial", 12), command=lambda: TicTacToe(B1) )
+B1 = Button(width = 25, height = 10, bg = "yellow", fg = "red", font=(60), command=lambda: TicTacToe(B1) )
 B1.place(x = 0, y = 0)
 
 
