@@ -20,9 +20,13 @@ def add_details():
     messagebox.showinfo("Details", "Your entry has been saved")
 
 def open_details():
+    Listbox1.delete(0, END)
     file = open("Address Book.txt", "r")
     Filecontent = file.read()
-    Listbox1.insert(END, Filecontent)
+    entries = Filecontent.split("\n")
+    print(entries)
+    for i in entries:
+        Listbox1.insert(END, i)
     file.close()  
 
 
